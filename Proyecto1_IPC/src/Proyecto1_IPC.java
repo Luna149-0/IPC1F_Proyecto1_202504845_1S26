@@ -11,5 +11,5 @@ public class Proyecto1_IPC {
         vista.setLocationRelativeTo(null);
 
     }
-    
+            
 }

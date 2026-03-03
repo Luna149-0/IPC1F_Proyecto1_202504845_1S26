@@ -11,10 +11,9 @@ package proyecto1_ipc.views;
 public class VistaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
+    VistaAgregar vAgregar=new VistaAgregar();
 
-    /**
-     * Creates new form VistaPrincipal
-     */
+
     public VistaPrincipal() {
         initComponents();
     }
@@ -54,6 +53,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         AgregarProducto.setBackground(new java.awt.Color(255, 204, 255));
         AgregarProducto.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         AgregarProducto.setText("Agregar producto");
+        AgregarProducto.addActionListener(this::AgregarProductoActionPerformed);
 
         BuscarProducto.setBackground(new java.awt.Color(255, 204, 255));
         BuscarProducto.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -157,6 +157,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void DatosEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosEstudianteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DatosEstudianteActionPerformed
+
+    private void AgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoActionPerformed
+        vAgregar.setVisible(true);
+         this.setVisible(false);
+         vAgregar.setLocationRelativeTo(null);
+    }//GEN-LAST:event_AgregarProductoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
