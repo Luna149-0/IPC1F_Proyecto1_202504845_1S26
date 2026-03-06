@@ -163,6 +163,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Registrar venta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarVentaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="GenerarReportes">
           <Properties>
