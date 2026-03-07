@@ -9,15 +9,18 @@ package proyecto1_ipc.views;
  * @author ixche
  */
 public class VistaRegistrar extends javax.swing.JFrame {
+    private VistaPrincipal menu;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaRegistrar.class.getName());
 
     /**
      * Creates new form VistaRegistrar
      */
-    public VistaRegistrar() {
-        initComponents();
+    public VistaRegistrar(VistaPrincipal menu){
+      initComponents();
+    this.menu = menu;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,6 +45,7 @@ public class VistaRegistrar extends javax.swing.JFrame {
         txtFecha = new javax.swing.JTextField();
         txtHora = new javax.swing.JTextField();
         BotRegistrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         textField1.setText("textField1");
 
@@ -81,6 +85,11 @@ public class VistaRegistrar extends javax.swing.JFrame {
         BotRegistrar.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         BotRegistrar.setText("Registrar");
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
+        jButton1.setText("Cerrar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -115,7 +124,9 @@ public class VistaRegistrar extends javax.swing.JFrame {
                 .addGap(69, 69, 69))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(102, 102, 102)
-                .addComponent(BotRegistrar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,7 +156,9 @@ public class VistaRegistrar extends javax.swing.JFrame {
                     .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(BotRegistrar)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,6 +177,11 @@ public class VistaRegistrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        menu.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +194,7 @@ public class VistaRegistrar extends javax.swing.JFrame {
     private javax.swing.JLabel RegistroVenta;
     private javax.swing.JLabel TotalVenta;
     private javax.swing.JLabel codigoProd;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private java.awt.TextField textField1;
     private javax.swing.JTextField txtCantidadVenta;

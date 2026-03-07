@@ -11,14 +11,7 @@ package proyecto1_ipc.views;
 public class VistaPrincipal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
-    
-    VistaAgregar vAgregar=new VistaAgregar();
-    
-    VistaEliminar vEliminar=new VistaEliminar();
-    
-    VistaRegistrar vRegistrar=new VistaRegistrar();
-
-
+   
     public VistaPrincipal() {
         initComponents();
     }
@@ -52,7 +45,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         menuprincipal.setText("Bienvenido al menu principal");
         menuprincipal.setToolTipText("");
 
-        opc.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        opc.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         opc.setText("Elija una opcion");
 
         AgregarProducto.setBackground(new java.awt.Color(255, 204, 255));
@@ -88,6 +81,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         Salir.setBackground(new java.awt.Color(255, 204, 255));
         Salir.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         Salir.setText("Salir      ");
+        Salir.addActionListener(this::SalirActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,7 +125,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addComponent(DatosEstudiante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Salir)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,13 +143,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarProductoActionPerformed
-        // TODO add your handling code here:
+        VistaBuscar vBuscar=new VistaBuscar(this); 
+        vBuscar.setVisible(true);
+        vBuscar.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_BuscarProductoActionPerformed
 
     private void EliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoActionPerformed
+        VistaEliminar vEliminar=new VistaEliminar(this);
         vEliminar.setVisible(true);
-        this.setVisible(false);
         vEliminar.setLocationRelativeTo(null);
+        this.setVisible(false);
         
     }//GEN-LAST:event_EliminarProductoActionPerformed
     
@@ -165,21 +163,32 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerarReportesActionPerformed
 
     private void DatosEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosEstudianteActionPerformed
-        // TODO add your handling code here:
+        
+        VistaDatosEstudiante vEstudiante=new VistaDatosEstudiante(this); 
+        vEstudiante.setVisible(true);
+        this.setVisible(false);
+        vEstudiante.setLocationRelativeTo(null);
     }//GEN-LAST:event_DatosEstudianteActionPerformed
 
     private void AgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoActionPerformed
-        vAgregar.setVisible(true);
-         this.setVisible(false);
-         vAgregar.setLocationRelativeTo(null);
+         VistaAgregar vAgregar=new VistaAgregar(this);
+      vAgregar.setVisible(true);
+      vAgregar.setLocationRelativeTo(null);
+      this.setVisible(false);
     }//GEN-LAST:event_AgregarProductoActionPerformed
 
     private void RegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVentaActionPerformed
-                                              
+        
+        VistaRegistrar vRegistrar=new VistaRegistrar(this);
         vRegistrar.setVisible(true);
+        vRegistrar.setLocationRelativeTo(null);
         this.setVisible(false);
-        vRegistrar.setLocationRelativeTo(null); 
+       
     }//GEN-LAST:event_RegistrarVentaActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -10,14 +10,18 @@ package proyecto1_ipc.views;
  */
 public class VistaAgregar extends javax.swing.JFrame {
     
+    private VistaPrincipal menu;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaAgregar.class.getName());
-  
+    
+
     /**
      * Creates new form VistaAgregar
      */
-    public VistaAgregar() {
-        initComponents();
-    }
+    public VistaAgregar(VistaPrincipal menu) {
+      initComponents();
+    this.menu = menu;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,9 +45,9 @@ public class VistaAgregar extends javax.swing.JFrame {
         id = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         txtAgregar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 206, 255));
 
@@ -81,10 +85,10 @@ public class VistaAgregar extends javax.swing.JFrame {
         txtAgregar.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         txtAgregar.setText("Agregar");
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
-        jButton1.setText("Cerrar");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btnCerrar.setBackground(new java.awt.Color(255, 153, 153));
+        btnCerrar.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(this::btnCerrarActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -99,15 +103,15 @@ public class VistaAgregar extends javax.swing.JFrame {
                     .addComponent(Categoria)
                     .addComponent(Precio)
                     .addComponent(CantidadStock)
-                    .addComponent(jButton1)
+                    .addComponent(btnCerrar)
                     .addComponent(txtcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                     .addComponent(txtPrecio)
                     .addComponent(txtcategoria)
                     .addComponent(txtNombre)
                     .addComponent(txtId))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(90, Short.MAX_VALUE)
                 .addComponent(agProd)
                 .addGap(86, 86, 86))
         );
@@ -139,7 +143,7 @@ public class VistaAgregar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnCerrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -147,9 +151,7 @@ public class VistaAgregar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +165,10 @@ public class VistaAgregar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+         menu.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,8 +181,8 @@ public class VistaAgregar extends javax.swing.JFrame {
     private javax.swing.JLabel NombreProd;
     private javax.swing.JLabel Precio;
     private javax.swing.JLabel agProd;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JLabel id;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton txtAgregar;
     private javax.swing.JTextField txtId;
