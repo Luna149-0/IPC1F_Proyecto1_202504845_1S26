@@ -43,28 +43,30 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtAgregar" min="-2" max="-2" attributes="0"/>
-                      <Component id="id" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="NombreProd" min="-2" max="-2" attributes="0"/>
-                      <Component id="Categoria" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="Precio" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="CantidadStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCerrar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtcantidad" alignment="0" pref="292" max="32767" attributes="0"/>
-                      <Component id="txtPrecio" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtcategoria" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtId" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="90" max="32767" attributes="0"/>
                   <Component id="agProd" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="id" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="NombreProd" min="-2" max="-2" attributes="0"/>
+                          <Component id="Categoria" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="Precio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="CantidadStock" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCerrar" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtcantidad" alignment="0" pref="292" max="32767" attributes="0"/>
+                          <Component id="txtPrecio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtcategoria" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtId" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -94,7 +96,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtId" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtAgregar" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -192,7 +194,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="txtAgregar">
+        <Component class="javax.swing.JButton" name="btnAgregar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="ff" type="rgb"/>
@@ -202,6 +204,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Agregar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCerrar">
           <Properties>
