@@ -165,13 +165,37 @@ public class VistaAgregar extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         //Todos los datos de los textfields
-        int idNuevo = SingletonId.getInstancia().generarId();
         String nombreNuevo = this.txtNombre.getText();
         int cantidadNueva = Integer.parseInt(txtcantidad.getText());
         String categoriaNuevo = this.txtcategoria.getText();
         int precioNuevo = Integer.parseInt(txtPrecio.getText());
-        prodController.agregarProducto(idNuevo, nombreNuevo, cantidadNueva, categoriaNuevo, precioNuevo);
         
+         // Validar positivos
+        if (precioNuevo <= 0 || cantidadNueva <= 0) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El precio y la cantidad deben ser positivos.");
+            return;
+        }
+        
+        int idNuevo = SingletonId.getInstancia().generarId();
+  
+        //validar campos vacíos
+        if (nombreNuevo.isEmpty() || categoriaNuevo.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El nombre y la categoría no pueden estar vacíos.");
+            return;
+        }
+         // Llamar al controller
+        prodController.agregarProducto(idNuevo, nombreNuevo, cantidadNueva, categoriaNuevo, precioNuevo);
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Producto agregado correctamente.");
+        
+         // Limpiar campos
+        txtNombre.setText("");
+        txtcategoria.setText("");
+        txtPrecio.setText("");
+        txtcantidad.setText("");
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
   
