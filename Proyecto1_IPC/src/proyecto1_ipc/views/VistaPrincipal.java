@@ -159,7 +159,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
 
     private void GenerarReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportesActionPerformed
-        // TODO add your handling code here:
+         VistaReportes vReportes=new VistaReportes(this);
+        vReportes.setVisible(true);
+        vReportes.setLocationRelativeTo(null);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_GenerarReportesActionPerformed
 
     private void DatosEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatosEstudianteActionPerformed

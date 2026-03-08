@@ -4,6 +4,7 @@
  */
 package proyecto1_ipc.views;
 
+import Singleton.SingletonId;
 import proyecto1_ipc.controllers.ProductoController;
 
 /**
@@ -17,7 +18,7 @@ public class VistaAgregar extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaAgregar.class.getName());
     
     ProductoController prodController=new ProductoController();
-
+    SingletonId singleton = new SingletonId();
     /**
      * Creates new form VistaAgregar
      */
@@ -45,8 +46,6 @@ public class VistaAgregar extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
         CantidadStock = new javax.swing.JLabel();
         txtcantidad = new javax.swing.JTextField();
-        id = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
 
@@ -79,11 +78,6 @@ public class VistaAgregar extends javax.swing.JFrame {
 
         txtcantidad.setBackground(new java.awt.Color(255, 204, 204));
 
-        id.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        id.setText("Id");
-
-        txtId.setBackground(new java.awt.Color(255, 204, 204));
-
         btnAgregar.setBackground(new java.awt.Color(255, 153, 153));
         btnAgregar.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         btnAgregar.setText("Agregar");
@@ -107,7 +101,6 @@ public class VistaAgregar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAgregar)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(NombreProd)
                         .addComponent(Categoria)
                         .addComponent(Precio)
@@ -116,8 +109,7 @@ public class VistaAgregar extends javax.swing.JFrame {
                         .addComponent(txtcantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                         .addComponent(txtPrecio)
                         .addComponent(txtcategoria)
-                        .addComponent(txtNombre)
-                        .addComponent(txtId)))
+                        .addComponent(txtNombre)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,11 +133,7 @@ public class VistaAgregar extends javax.swing.JFrame {
                 .addComponent(CantidadStock)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(id)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(36, 36, 36)
                 .addComponent(btnAgregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrar)
@@ -160,7 +148,7 @@ public class VistaAgregar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -177,7 +165,7 @@ public class VistaAgregar extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         //Todos los datos de los textfields
-        int idNuevo = Integer.parseInt(txtId.getText());
+        int idNuevo = SingletonId.getInstancia().generarId();
         String nombreNuevo = this.txtNombre.getText();
         int cantidadNueva = Integer.parseInt(txtcantidad.getText());
         String categoriaNuevo = this.txtcategoria.getText();
@@ -200,9 +188,7 @@ public class VistaAgregar extends javax.swing.JFrame {
     private javax.swing.JLabel agProd;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JLabel id;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtcantidad;
