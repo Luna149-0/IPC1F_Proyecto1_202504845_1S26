@@ -50,6 +50,7 @@ public class VistaBuscar extends javax.swing.JFrame {
         BuscarNom.setBackground(new java.awt.Color(255, 153, 153));
         BuscarNom.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         BuscarNom.setText("Nombre");
+        BuscarNom.addActionListener(this::BuscarNomActionPerformed);
 
         BuscarCat.setBackground(new java.awt.Color(255, 153, 153));
         BuscarCat.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
@@ -124,6 +125,10 @@ public class VistaBuscar extends javax.swing.JFrame {
          menu.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BuscarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarNomActionPerformed
 
     /**
      * @param args the command line arguments
