@@ -55,10 +55,12 @@ public class VistaBuscar extends javax.swing.JFrame {
         BuscarCat.setBackground(new java.awt.Color(255, 153, 153));
         BuscarCat.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         BuscarCat.setText("Categoría");
+        BuscarCat.addActionListener(this::BuscarCatActionPerformed);
 
         BuscarCodigo.setBackground(new java.awt.Color(255, 153, 153));
         BuscarCodigo.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         BuscarCodigo.setText("Código");
+        BuscarCodigo.addActionListener(this::BuscarCodigoActionPerformed);
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
@@ -127,8 +129,22 @@ public class VistaBuscar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BuscarNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomActionPerformed
-        // TODO add your handling code here:
+        VistaBuscarNombre vista = new VistaBuscarNombre(menu);
+        vista.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BuscarNomActionPerformed
+
+    private void BuscarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCatActionPerformed
+        VistaBuscarCategoria vistaCat = new VistaBuscarCategoria(menu);
+        vistaCat.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BuscarCatActionPerformed
+
+    private void BuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCodigoActionPerformed
+        VistaBuscarId vistaId = new VistaBuscarId(menu);
+        vistaId.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BuscarCodigoActionPerformed
 
     /**
      * @param args the command line arguments

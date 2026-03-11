@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1_ipc.views;
+import proyecto1_ipc.controllers.ProductoController;
 
 /**
  *
@@ -10,17 +11,19 @@ package proyecto1_ipc.views;
  */
 public class VistaBuscarNombre extends javax.swing.JFrame {
     
+    private VistaPrincipal menu;
+    
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaBuscarNombre.class.getName());
 
-    /**
-     * Creates new form VistaBuscarNombre
-     */
     public VistaBuscarNombre() {
         initComponents();
     }
 
     VistaBuscarNombre(VistaPrincipal menu) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    initComponents();
+    this.menu = menu;
+    setLocationRelativeTo(null);
     }
 
     /**
@@ -47,9 +50,11 @@ public class VistaBuscarNombre extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setText("Buscar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setText("Cerrar");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,30 +103,19 @@ public class VistaBuscarNombre extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            menu.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VistaBuscarNombre().setVisible(true));
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String nombre = txtNombreProd.getText();
+        ProductoController controller = new ProductoController();
+        String resultado = controller.buscarPorNombre(nombre);
+        javax.swing.JOptionPane.showMessageDialog(this, resultado);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BuscarNombre;

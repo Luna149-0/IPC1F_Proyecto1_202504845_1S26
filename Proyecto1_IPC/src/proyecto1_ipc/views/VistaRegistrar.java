@@ -84,6 +84,7 @@ public class VistaRegistrar extends javax.swing.JFrame {
         BotRegistrar.setBackground(new java.awt.Color(255, 153, 153));
         BotRegistrar.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         BotRegistrar.setText("Registrar");
+        BotRegistrar.addActionListener(this::BotRegistrarActionPerformed);
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
@@ -181,6 +182,10 @@ public class VistaRegistrar extends javax.swing.JFrame {
         menu.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BotRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotRegistrarActionPerformed
 
     /**
      * @param args the command line arguments

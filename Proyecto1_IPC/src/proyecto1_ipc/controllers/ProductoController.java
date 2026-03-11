@@ -103,5 +103,30 @@ public class ProductoController {
     Files.write(Paths.get(nombreArchivo), html.getBytes(StandardCharsets.UTF_8));
 
     System.out.println("Reporte generado: " + nombreArchivo);
-    }}
     
+    }
+    
+    
+    public String buscarPorNombre(String nombre){
+
+    for(ProductoModel prod : datosProd){
+
+        if(prod == null) continue;
+
+        if(prod.getNombre().equalsIgnoreCase(nombre)){
+
+            return "Producto encontrado\n"
+                    + "ID: " + prod.getId()
+                    + "\nNombre: " + prod.getNombre()
+                    + "\nCategoría: " + prod.getCategoria()
+                    + "\nPrecio: " + prod.getPrecio()
+                    + "\nCantidad en stock: " + prod.getCantidad();
+        }
+    }
+
+    return "Producto no encontrado";
+}
+
+    }
+    
+

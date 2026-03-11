@@ -9,7 +9,7 @@ package proyecto1_ipc.views;
  * @author ixche
  */
 public class VistaBuscarId extends javax.swing.JFrame {
-    
+     private VistaPrincipal menu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaBuscarId.class.getName());
 
     /**
@@ -17,6 +17,11 @@ public class VistaBuscarId extends javax.swing.JFrame {
      */
     public VistaBuscarId() {
         initComponents();
+    }
+     VistaBuscarId(VistaPrincipal menu) {
+    initComponents();
+    this.menu = menu;
+    setLocationRelativeTo(null);
     }
 
     /**
@@ -29,18 +34,56 @@ public class VistaBuscarId extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        BuscarPorId = new javax.swing.JLabel();
+        txtIdBuscar = new javax.swing.JTextField();
+        btnBuscarPorId = new javax.swing.JButton();
+        btnCerrarBuscarId = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
+
+        BuscarPorId.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        BuscarPorId.setText("Escriba el Id del producto");
+
+        btnBuscarPorId.setBackground(new java.awt.Color(255, 153, 153));
+        btnBuscarPorId.setText("Buscar");
+
+        btnCerrarBuscarId.setBackground(new java.awt.Color(255, 153, 153));
+        btnCerrarBuscarId.setText("Cerrar");
+        btnCerrarBuscarId.addActionListener(this::btnCerrarBuscarIdActionPerformed);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(BuscarPorId))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(txtIdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCerrarBuscarId)
+                            .addComponent(btnBuscarPorId))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BuscarPorId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscarPorId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrarBuscarId)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -51,38 +94,23 @@ public class VistaBuscarId extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btnCerrarBuscarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarBuscarIdActionPerformed
+            menu.setVisible(true);
+            this.dispose();
+    }//GEN-LAST:event_btnCerrarBuscarIdActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new VistaBuscarId().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BuscarPorId;
+    private javax.swing.JButton btnBuscarPorId;
+    private javax.swing.JButton btnCerrarBuscarId;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtIdBuscar;
     // End of variables declaration//GEN-END:variables
 }
