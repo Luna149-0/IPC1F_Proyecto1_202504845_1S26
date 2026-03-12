@@ -127,6 +127,76 @@ public class ProductoController {
     return "Producto no encontrado";
 }
 
+    public String buscarPorCategoria(String categoria){
+
+    String resultado = "";
+
+    for(ProductoModel prod : datosProd){
+
+        if(prod == null) continue;
+
+        if(prod.getCategoria().equalsIgnoreCase(categoria)){
+
+            resultado += "ID: " + prod.getId()
+                    + "\nNombre: " + prod.getNombre()
+                    + "\nCategoria: " + prod.getCategoria()
+                    + "\nPrecio: " + prod.getPrecio()
+                    + "\nCantidad: " + prod.getCantidad()
+                    + "\n--------------------\n";
+        }
+    }
+
+    if(resultado.equals("")){
+        return "No se encontraron productos en esa categoria";
+    }
+
+    return resultado;
+}
+    
+     public String buscarPorId(int id){
+
+    String resultado = "";
+
+    for(ProductoModel prod : datosProd){
+
+        if(prod == null) continue;
+
+        if(prod.getId()==id){
+
+            resultado += "ID: " + prod.getId()
+                    + "\nNombre: " + prod.getNombre()
+                    + "\nCategoria: " + prod.getCategoria()
+                    + "\nPrecio: " + prod.getPrecio()
+                    + "\nCantidad: " + prod.getCantidad()
+                    + "\n--------------------\n";
+        }
+    }
+
+    if(resultado.equals("")){
+        return "No se encontraron productos con el id: " +id;
+    }
+
+    return resultado;
+}
+
+public String eliminarProducto(int id){
+
+    for(int i = 0; i < datosProd.length; i++){
+
+        if(datosProd[i] == null) continue;
+
+        if(datosProd[i].getId() == id){
+
+
+            datosProd[i] = null;
+
+            return "Producto eliminado correctamente";
+        }
+    }
+
+    return "Producto no encontrado";
+}
+
     }
     
 

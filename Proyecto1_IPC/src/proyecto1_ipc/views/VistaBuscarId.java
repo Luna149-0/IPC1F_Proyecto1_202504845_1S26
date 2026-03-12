@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1_ipc.views;
-
+import proyecto1_ipc.controllers.ProductoController;
 /**
  *
  * @author ixche
@@ -48,6 +48,7 @@ public class VistaBuscarId extends javax.swing.JFrame {
 
         btnBuscarPorId.setBackground(new java.awt.Color(255, 153, 153));
         btnBuscarPorId.setText("Buscar");
+        btnBuscarPorId.addActionListener(this::btnBuscarPorIdActionPerformed);
 
         btnCerrarBuscarId.setBackground(new java.awt.Color(255, 153, 153));
         btnCerrarBuscarId.setText("Cerrar");
@@ -104,6 +105,14 @@ public class VistaBuscarId extends javax.swing.JFrame {
             menu.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_btnCerrarBuscarIdActionPerformed
+
+    private void btnBuscarPorIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorIdActionPerformed
+
+          int id = Integer.parseInt(txtIdBuscar.getText());
+        ProductoController controller = new ProductoController();
+        String resultado = controller.buscarPorId(id);
+        javax.swing.JOptionPane.showMessageDialog(this, resultado);
+    }//GEN-LAST:event_btnBuscarPorIdActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

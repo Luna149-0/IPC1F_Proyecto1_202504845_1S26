@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1_ipc.views;
-
+import proyecto1_ipc.controllers.ProductoController;
 /**
  *
  * @author ixche
@@ -105,7 +105,10 @@ public class VistaBuscarCategoria extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBusCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusCatActionPerformed
-        // TODO add your handling code here:
+        String categoria = txtCategoriaaBuscar.getText();
+        ProductoController controller = new ProductoController();
+        String resultado = controller.buscarPorCategoria(categoria);
+        javax.swing.JOptionPane.showMessageDialog(this, resultado);
     }//GEN-LAST:event_txtBusCatActionPerformed
 
     private void txtCerrarBuscarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCerrarBuscarCatActionPerformed

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1_ipc.views;
-
+import proyecto1_ipc.controllers.ProductoController;
 /**
  *
  * @author ixche
@@ -53,6 +53,7 @@ public class VistaEliminar extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
         jButton1.setText("Eliminar");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
 
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Arial Black", 3, 12)); // NOI18N
@@ -114,6 +115,26 @@ public class VistaEliminar extends javax.swing.JFrame {
         menu.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int id = Integer.parseInt(txtcodigoEliminar.getText());
+        
+        int confirmacion = javax.swing.JOptionPane.showConfirmDialog(
+        this,
+        "¿Seguro que desea eliminar el producto?",
+        "Confirmar eliminación",
+        javax.swing.JOptionPane.YES_NO_OPTION
+);
+        if(confirmacion == javax.swing.JOptionPane.YES_OPTION){
+
+    ProductoController controller = new ProductoController();
+
+    String resultado = controller.eliminarProducto(id);
+
+    javax.swing.JOptionPane.showMessageDialog(this, resultado);
+}
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
