@@ -3,15 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1_ipc.views;
+import proyecto1_ipc.controllers.ProductoController;
 
 /**
  *
  * @author ixche
  */
 public class VistaPrincipal extends javax.swing.JFrame {
+  
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
-   
+  private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaPrincipal.class.getName());
+   private ProductoController controller = new ProductoController();
     public VistaPrincipal() {
         initComponents();
     }
@@ -159,10 +161,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
 
     private void GenerarReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarReportesActionPerformed
-         VistaReportes vReportes=new VistaReportes(this);
-        vReportes.setVisible(true);
-        vReportes.setLocationRelativeTo(null);
-        this.setVisible(false);
+     VistaReportes vReportes = new VistaReportes(this, controller);
+      vReportes.setVisible(true);
+      vReportes.setLocationRelativeTo(null);
+      this.setVisible(false);
         
     }//GEN-LAST:event_GenerarReportesActionPerformed
 
@@ -183,10 +185,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     private void RegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarVentaActionPerformed
         
-        VistaRegistrar vRegistrar=new VistaRegistrar(this);
-        vRegistrar.setVisible(true);
-        vRegistrar.setLocationRelativeTo(null);
-        this.setVisible(false);
+    VistaRegistrar v = new VistaRegistrar(this, controller);
+     v.setVisible(true);
+     v.setLocationRelativeTo(null);
+     this.dispose();
        
     }//GEN-LAST:event_RegistrarVentaActionPerformed
 

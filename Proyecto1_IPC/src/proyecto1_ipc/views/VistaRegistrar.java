@@ -3,12 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1_ipc.views;
-
+import java.io.IOException;
+import javax.swing.JOptionPane;
+import proyecto1_ipc.controllers.ProductoController;
 /**
  *
  * @author ixche
  */
 public class VistaRegistrar extends javax.swing.JFrame {
+    private ProductoController controller;
     private VistaPrincipal menu;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaRegistrar.class.getName());
@@ -16,10 +19,11 @@ public class VistaRegistrar extends javax.swing.JFrame {
     /**
      * Creates new form VistaRegistrar
      */
-    public VistaRegistrar(VistaPrincipal menu){
-      initComponents();
+public VistaRegistrar(VistaPrincipal menu, ProductoController controller) {
+    initComponents();
     this.menu = menu;
-    }
+    this.controller = controller;
+}
     
 
     /**
@@ -38,12 +42,6 @@ public class VistaRegistrar extends javax.swing.JFrame {
         txtcodProd = new javax.swing.JTextField();
         CantidadVenta = new javax.swing.JLabel();
         txtCantidadVenta = new javax.swing.JTextField();
-        TotalVenta = new javax.swing.JLabel();
-        txtTotVen = new javax.swing.JTextField();
-        Fecha = new javax.swing.JLabel();
-        Hora = new javax.swing.JLabel();
-        txtFecha = new javax.swing.JTextField();
-        txtHora = new javax.swing.JTextField();
         BotRegistrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -66,21 +64,6 @@ public class VistaRegistrar extends javax.swing.JFrame {
 
         txtCantidadVenta.setBackground(new java.awt.Color(255, 204, 204));
 
-        TotalVenta.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        TotalVenta.setText("Total de la venta");
-
-        txtTotVen.setBackground(new java.awt.Color(255, 204, 204));
-
-        Fecha.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        Fecha.setText("Fecha");
-
-        Hora.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        Hora.setText("Hora");
-
-        txtFecha.setBackground(new java.awt.Color(255, 204, 204));
-
-        txtHora.setBackground(new java.awt.Color(255, 204, 204));
-
         BotRegistrar.setBackground(new java.awt.Color(255, 153, 153));
         BotRegistrar.setFont(new java.awt.Font("Arial Black", 3, 14)); // NOI18N
         BotRegistrar.setText("Registrar");
@@ -99,25 +82,13 @@ public class VistaRegistrar extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TotalVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CantidadVenta))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(CantidadVenta)
+                        .addGap(0, 162, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(Fecha)
-                                .addGap(148, 148, 148)
-                                .addComponent(Hora, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(txtTotVen, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCantidadVenta, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(codigoProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtcodProd, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtCantidadVenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                            .addComponent(codigoProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcodProd, javax.swing.GroupLayout.Alignment.LEADING))
                         .addContainerGap(59, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -143,23 +114,11 @@ public class VistaRegistrar extends javax.swing.JFrame {
                 .addComponent(CantidadVenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCantidadVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(TotalVenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTotVen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Fecha)
-                    .addComponent(Hora))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotRegistrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,9 +129,7 @@ public class VistaRegistrar extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -180,11 +137,22 @@ public class VistaRegistrar extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         menu.setVisible(true);
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BotRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotRegistrarActionPerformed
-        // TODO add your handling code here:
+
+        int id = Integer.parseInt(txtcodProd.getText());
+        int cantidad = Integer.parseInt(txtCantidadVenta.getText());
+
+        String resultado = null;
+        try {
+            resultado = controller.registrarVenta(id, cantidad);
+        } catch (IOException ex) {
+            System.getLogger(VistaRegistrar.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+
+        JOptionPane.showMessageDialog(this, resultado);
     }//GEN-LAST:event_BotRegistrarActionPerformed
 
     /**
@@ -194,18 +162,12 @@ public class VistaRegistrar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotRegistrar;
     private javax.swing.JLabel CantidadVenta;
-    private javax.swing.JLabel Fecha;
-    private javax.swing.JLabel Hora;
     private javax.swing.JLabel RegistroVenta;
-    private javax.swing.JLabel TotalVenta;
     private javax.swing.JLabel codigoProd;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private java.awt.TextField textField1;
     private javax.swing.JTextField txtCantidadVenta;
-    private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtHora;
-    private javax.swing.JTextField txtTotVen;
     private javax.swing.JTextField txtcodProd;
     // End of variables declaration//GEN-END:variables
 }

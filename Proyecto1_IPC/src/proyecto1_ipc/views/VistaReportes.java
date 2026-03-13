@@ -6,6 +6,7 @@ package proyecto1_ipc.views;
 
 import Singleton.SingletonId;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 import proyecto1_ipc.controllers.ProductoController;
 
 /**
@@ -16,13 +17,14 @@ public class VistaReportes extends javax.swing.JFrame {
      private VistaPrincipal menu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaReportes.class.getName());
 
-        ProductoController prodController=new ProductoController();
+        private ProductoController controller;
         SingletonId singleton = new SingletonId();
-        
-  public VistaReportes(VistaPrincipal menu){
-      initComponents();
+
+        public VistaReportes(VistaPrincipal menu, ProductoController controller){
+    initComponents();
     this.menu = menu;
-    }
+    this.controller = controller;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,6 +55,7 @@ public class VistaReportes extends javax.swing.JFrame {
         btnReporteVentas.setBackground(new java.awt.Color(255, 153, 153));
         btnReporteVentas.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
         btnReporteVentas.setText("Ver reporte de Ventas");
+        btnReporteVentas.addActionListener(this::btnReporteVentasActionPerformed);
 
         btnCerrarVReportes.setBackground(new java.awt.Color(255, 153, 153));
         btnCerrarVReportes.setFont(new java.awt.Font("Arial Black", 2, 14)); // NOI18N
@@ -120,6 +123,16 @@ public class VistaReportes extends javax.swing.JFrame {
            menu.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_btnCerrarVReportesActionPerformed
+
+    private void btnReporteVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteVentasActionPerformed
+
+ try {
+        ProductoController.generarReporteVentas();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+
+    }//GEN-LAST:event_btnReporteVentasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
