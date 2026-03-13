@@ -37,17 +37,24 @@ public class ProductoController {
         }
     }
     
-    public void verProductos(){
-        for(ProductoModel prod: datosProd){
-            System.out.println("------------------");
-            System.out.println(prod.getId());
-            System.out.println(prod.getNombre());
-            System.out.println(prod.getCantidad());
-            System.out.println(prod.getCategoria());
-            System.out.println(prod.getPrecio());
-            System.out.println("------------------");
+   public String verProductosComoString() {
+    StringBuilder sb = new StringBuilder();
+
+    for(ProductoModel prod: datosProd){
+        if(prod != null){
+            sb.append("------------------\n");
+            sb.append("ID: ").append(prod.getId()).append("\n");
+            sb.append("Nombre: ").append(prod.getNombre()).append("\n");
+            sb.append("Cantidad: ").append(prod.getCantidad()).append("\n");
+            sb.append("Categoría: ").append(prod.getCategoria()).append("\n");
+            sb.append("Precio: ").append(prod.getPrecio()).append("\n");
+            sb.append("------------------\n");
         }
     }
+
+    if(sb.length() == 0) return "No hay productos registrados";
+    return sb.toString();
+}
     
     public static void generarHTML() throws IOException{
         String fecha = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss").format(new Date());
